@@ -68,8 +68,8 @@ label{
 }
 input[type=button]{
 	font-size: 16px;
-	background: linear-gradient(#b3ffb3 5%,  #00e600 100%);
-	border: 1px solid #99ff99;
+	background: linear-gradient(#00b3b3 5%,  #008081 100%);
+	border: 1px solid #009999;
 	color: white;
 	font-weight: bold;
 	cursor: pointer;
