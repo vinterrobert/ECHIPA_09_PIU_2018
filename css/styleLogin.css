@@ -79,5 +79,5 @@ input[type=button]{
 	outline:none;
 }
 input[type=button]:hover{
-	background: linear-gradient(#00e600 5%, #00ff00 100%);
+	background: linear-gradient(#00b3b3 5%, #00e6e6 100%);
 }
