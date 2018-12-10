@@ -11,6 +11,7 @@ h2{
 	color: #324c5b;
 	margin-left: 20px;
 	margin-bottom: 20px;
+	font-family: 'Raleway', sans-serif;
 }
 
 div.container{
@@ -166,6 +167,7 @@ button.addWallet{
 	border: 15px solid white;
 	border-radius: 10px;
 	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
 	font-size: 18px;
 	text-decoration: none;
 	outline: none;
@@ -188,6 +190,7 @@ button.addEconAcc{
 	border-radius: 10px;
 	font-weight: bold;
 	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
@@ -208,6 +211,7 @@ button.addGroup{
 	border-radius: 10px;
 	font-weight: bold;
 	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
@@ -228,6 +232,7 @@ button.addWhishlist{
 	border-radius: 10px;
 	font-weight: bold;
 	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
 	text-decoration: none;
 	outline: none;
 	cursor: pointer;
