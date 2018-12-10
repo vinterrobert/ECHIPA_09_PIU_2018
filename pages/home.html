@@ -5,6 +5,7 @@
 	<title>Home page</title>
 
 	<link rel="stylesheet" href="../css/styleHome.css"/>
+	<script src="../js/home.js"></script>
 
 </head>
 
@@ -28,15 +29,25 @@
 
 		<div class="main">
 
-		  <h2>Wallets</h2>
+			<h2>Wallets</h2>
 
-		  <div class="wallet">
+			<div class="wallet">
 
-             <a class="aWallet" href="myWallet.html"/>
-		     <p class="myWallet">My wallet</p>
-		     <p class="cash">Cash RON</p>
+				<div class="walletInfo" onclick="openMyWallet()">
 
-		  </div>
+					<p class="myWallet">My wallet</p>
+					<p class="walletMessage">No wallet added</p>
+
+				</div>
+
+				<div class="addAction">
+
+					<button class="addWallet" onclick="addNewWallet()">Add wallet</button>
+					<button class="addEconAcc" onclick="addEconomyAccount()">Add economy account</button>
+
+				</div>
+
+			</div>
 
 		</div>
 

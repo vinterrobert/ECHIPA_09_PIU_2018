@@ -44,12 +44,24 @@ div.main{
 div.wallet{
 
     width: 220px;
-    height: 100px;
+    height: 200px;
 	margin-top: 40px;
 	margin-left: 20px;
+}
+
+div.walletInfo{
 	border: 5px solid white;
 	border-radius: 15px;
 	background-color: white;
+	width: 250px;
+	height: 100px;
+	cursor: pointer;
+}
+
+div.addAction{
+	width: 250px;
+	margin-top: -110px;
+	margin-left: 400px;
 }
 
 img.topSpendee{
@@ -73,17 +85,54 @@ a.topLogout{
 	margin-right: 40px;
 }
 
-a.aWallet{
-	text-decoration: none;
-}
-
 p.myWallet{
 	color: #324c5b;
 	margin-left: 30px;
 	font-weight: bold;
 }
 
-p.cash{
+p.walletMessage{
 	color: black;
 	margin-left: 30px;
+}
+
+button.addWallet{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+	margin-bottom: 15px;
+}
+
+button.addWallet:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+button.addEconAcc{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+}
+
+button.addEconAcc:hover{
+	box-shadow: 5px 5px 5px grey;
 }
