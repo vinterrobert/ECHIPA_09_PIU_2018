@@ -105,6 +105,50 @@ div.addWhishlistAction{
 	margin-left: 420px;
 }
 
+div.createWallet{
+	display: none;
+	position: fixed;
+	width: 500px;
+	height: 360px;
+	margin-bottom: 200px;
+	margin-right: 100px;
+	margin-left: 300px;
+	margin-top: -150px;
+	border: 3px solid #f1f1f1;
+	z-index: 20;
+	background-color: white;
+}
+
+div.formWalletContainer{
+	opacity: 1;
+	padding: 10px;
+	margin-left: 100px;
+}
+
+input[type=text]{
+	padding: 12px 20px;
+	margin: 15px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+div.formWalletContainer input[type=text]:focus{
+	background-color: #ddd;
+	outline: none;
+}
+
+.formWalletContainer h1{
+	color: #324c5b;
+	margin-top: 0px;
+}
+
+.createWallet label{
+	color: #324c5b;
+	font-weight: bold;
+}
+
 img.topSpendee{
 	float: left;
 	margin-left: 10px;
@@ -242,4 +286,42 @@ button.addWhishlist{
 
 button.addWhishlist:hover{
 	box-shadow: 5px 5px 5px grey;
+}
+
+button.btnSaveWallet{
+	background-color: white;
+	color: #324c5b;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+	margin-top: 30px;
+	margin-left: 0px;
+}
+
+button.btnCloseWallet{
+	background-color: white;
+	color: #324c5b;
+	width: 50px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+	margin-left: 450px;
+	margin-top: -350px;
 }

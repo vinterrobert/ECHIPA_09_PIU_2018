@@ -47,6 +47,35 @@
 
 				</div>
 
+				<div class="createWallet">
+
+					<form class="formWalletContainer">
+
+						<h1>Add new wallet</h1>
+
+						<br>
+
+						<label for="name">Name</label>
+						<br>
+						<input id="nameWalletInput" type="text" name="name" placeholder="Enter wallet name"/>
+
+						<br>
+
+						<label for="sum">Amount</label>
+						<br>
+						<input id="amountWalletInput" type="text" name="amount" placeholder="Enter initial amount"/>
+
+						<br>
+
+						<button class="btnSaveWallet" onclick="saveWalletSettings()">Save</button>
+
+					</form>
+
+
+					<button class="btnCloseWallet" onclick="closeMyPopupWallet()">x</button>
+
+				</div>
+
 			</div>
 
 			<div class="groups">
@@ -57,7 +86,7 @@
 
 					<p class="myGroups">My groups</p>
 					<p class="groupsMsg">No group added</p>
-					
+
 				</div>
 
 				<div class="addGroupAction">

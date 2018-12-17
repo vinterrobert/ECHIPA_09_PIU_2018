@@ -1,4 +1,7 @@
 
+var walletName = "";
+var walletAmount = -1;
+
 function openMyWallet() {
 
 	window.location = "myWallet.html";
@@ -19,9 +22,25 @@ function openMyWhishlist(){
 
 function addNewWallet(){
 
-	alert("Not implemented yet");
+	document.getElementsByClassName("createWallet")[0].style.display = "block";
 	return false;
 
+}
+
+function closeMyPopupWallet(){
+
+	document.getElementsByClassName("createWallet")[0].style.display = "none";
+	return false;
+}
+
+function saveWalletSettings(){
+
+	walletName = document.getElementById("nameWalletInput").value;
+	walletAmount = document.getElementById("amountWalletInput").value;
+	if(isNaN(walletAmount)){
+		alert("not a number");
+	}
+	return false;
 }
 
 function addEconomyAccount(){
