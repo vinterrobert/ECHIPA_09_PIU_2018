@@ -5,6 +5,7 @@
 	<title>Home page</title>
 
 	<link rel="stylesheet" href="../css/styleHome.css"/>
+	<link rel="stylesheet" href="../css/styleEcoAccForm.css"/>
 	<script src="../js/home.js"></script>
 
 </head>
@@ -43,7 +44,27 @@
 				<div class="addAction">
 
 					<button class="addWallet" onclick="addNewWallet()">Add wallet</button>
-					<button class="addEconAcc" onclick="addEconomyAccount()">Add economy account</button>
+					<button class="addEconAcc" onclick="openEconomyAccForm()">Add economy account</button>
+					
+					<div class="form-popup" id="myForm">
+					  <form class="form-container">
+						<h1>Create Economy Account</h1>
+
+						<label for="economy-name"><b>Name</b></label>
+						<input type="text" placeholder="Enter Name" name="economy-name" required>
+
+						<label for="economy-deposit"><b>Initial deposit</b></label>
+						<input type="text" placeholder="Enter deposit" name="economy-deposit" required>
+
+						<input type="radio" name="economy-type"> MANUAL<br>
+						<input type="radio" name="economy-type"> AUTO<br>
+						<input type="checkbox" name="economy-reminder" value="optional">Monthly reminder<br>
+						
+						<button type="button" class="btn" onclick="callEcconomyPage()">Create</button>
+						<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+					  </form>
+					</div>
+
 
 				</div>
 

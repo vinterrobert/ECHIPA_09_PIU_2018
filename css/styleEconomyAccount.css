@@ -1,0 +1,284 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+h1{
+	position: relative;
+	top:18px;
+	left: 10px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h2{
+	color: #324c5b;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	font-family: 'Raleway', sans-serif;
+}
+
+div.container{
+	width: 100%;
+	height: 850px;
+	background-color: #f4f7fa;
+	font-family: 'Raleway', sans-serif;
+}
+
+div.header{
+	background: white;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 70px;
+}
+
+div.avatarUser{
+	position: relative;
+	float: right;
+	height: 70px;
+	width: 120px;
+	margin-top: -65px;
+}
+
+div.main{
+	margin-top: 70px;
+	margin-left: 100px;
+}
+
+div.wallet{
+
+	width: 220px;
+	height: 200px;
+	margin-top: 40px;
+	margin-left: 20px;
+}
+
+div.walletInfo{
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	width: 250px;
+	height: 100px;
+	cursor: pointer;
+}
+
+div.addAction{
+	width: 250px;
+	margin-top: -110px;
+	margin-left: 400px;
+}
+
+div.groups{
+	margin-top: 50px;
+	width: 220px;
+	height: 200px;
+}
+
+div.groupInfo{
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	width: 250px;
+	height: 100px;
+	cursor: pointer;
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+div.addGroupAction{
+	width: 250px;
+	margin-top: -80px;
+	margin-left: 420px;
+}
+
+div.wishlistInfo{
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	width: 250px;
+	height: 100px;
+	cursor: pointer;
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+div.addWhishlistAction{
+	width: 250px;
+	margin-top: -80px;
+	margin-left: 420px;
+}
+
+img.topSpendee{
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	width: 60px;
+}
+
+img.topAvatar{
+	float: right;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 60px;
+}
+
+a.topLogout{
+	float: right;
+	color: black;
+	margin-top: -30px;
+	margin-right: 40px;
+}
+
+p.myWallet{
+	color: #324c5b;
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+p.walletMessage{
+	color: black;
+	margin-left: 30px;
+}
+
+p.myGroups{
+	color: #324c5b;
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+p.groupsMsg{
+	color: black;
+	margin-left: 30px;
+}
+
+p.myWhishlists{
+	color: #324c5b;
+	margin-left: 30px;
+	font-weight: bold;	
+}
+
+p.wishlistMsg{
+	color: black;
+	margin-left: 30px;	
+}
+
+button.addWallet{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+	margin-bottom: 15px;
+}
+
+button.addWallet:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+button.addEconAcc{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+}
+
+button.addEconAcc:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+button.addGroup{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+}
+
+button.addGroup:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+button.addWhishlist{
+	background-color: white;
+	color: #12c48b;
+	width: 100%;
+	height: 50px;
+	border: 15px solid white;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0 8px;
+	text-overflow: ellipsis;
+}
+
+button.addWhishlist:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+input{
+	float: right;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 300px;
+	text-align: center;
+}
+
+button.btn-success{
+	margin-left: 30px;
+}
+
+div.item{
+	margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+    height: 30px;
+	box-shadow: 1px 1px 0px 0px #66666661;;
+}
+
+div.col-6{
+	text-align:center;
+}
+
+div.transactionInfo{
+	clear:both;
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	cursor: pointer;
+	margin-left: 20px;
+	margin-top: 40px;
+	width: 90%;
+	height: auto;
+}
+
+

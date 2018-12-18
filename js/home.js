@@ -30,6 +30,18 @@ function addEconomyAccount(){
 	return false;
 }
 
+function openEconomyAccForm(){
+
+	document.getElementById("myForm").style.display = "block";
+}
+
+function callEcconomyPage(){
+	window.location = "EcconomyAccount.html";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 function addNewGroup() {
 	
 	alert("Not implemented yet");

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Economy Account</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<link rel="stylesheet" href="../css/styleEconomyAccount.css"/>
+	<link rel="stylesheet" href="../css/styleEcoAccForm.css"/>
+	<script src="../js/home.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="header"> 
+
+			<img class="topSpendee" src="../images/spendee.jpg"/>
+			<h1>FinancialPlanner</h1>
+
+			<div class="avatarUser">
+
+				<img class="topAvatar" src="../images/userAvatar.png">
+				<a href="../index.html" class="topLogout">Logout</a>
+
+			</div>
+		</div>
+		
+		<div class="main">
+			<h2>Ecconomy Account</h2>
+			
+			<div class="container2">
+				<div class="row">
+					<div class="col-md-12">
+						<button type="button" class="btn btn-success"><i class="fas fa-plus-circle"></i> Add transaction</button>
+						<input type="text" name="daterange" id="daterange" value="12/01/2018 - 12/31/2018" />
+
+						<script>
+						$(function() {
+						  $('input[name="daterange"]').daterangepicker({
+							opens: 'left'
+						  }, function(start, end, label) {
+							console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+						  });
+						});
+						</script>
+						
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="groups">
+							<div class="groupInfo" onclick="openMyGroups()">
+								<p class="myGroups">Current Balance</p>
+								<p class="groupsMsg">200 RON</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class ="transactionInfo">
+						<div class="item">
+							<div class="col-6 col-md-4">12/09/2018</div>
+							<div class="col-12 col-md-8">mesage</div>
+						</div>
+						<div class="item">
+							<div class="col-6 col-md-4">12/09/2018</div>
+							<div class="col-12 col-md-8">tranzactie2</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
