@@ -65,14 +65,14 @@
 										</div>
 										<div class="form-group" align="center">
 											<label class="radio-inline">
-											  <input type="radio" name="economy-type" checked>MANUAL
+											  <input type="radio" name="economy-type" id="economy-manual" checked>MANUAL
 											</label>
 											<label class="radio-inline">
-											  <input type="radio" name="economy-type">AUTO
+											  <input type="radio" name="economy-type" id="economy-auto" >AUTO
 											</label>
 										</div>
 										<div class="form-group" align="center">
-											<input type="checkbox" name="economy-reminder" value="optional">Monthly reminder<br>
+											<input type="checkbox" id="economy-reminder" value="optional">Monthly reminder<br>
 										</div>
 										<button type="button" class="btn btn-lg btn-success btn-block" id="btnUpdateInfo" onclick="updateEconomy()" data-dismiss="modal">Update</button>
 									</form>
@@ -170,9 +170,9 @@
 					<ul id ="transactionInfo">				
 						<li>
 						<div class="item">
-							<div class="col-sm-3">12/09/2018</div>
+							<div class="col-sm-3" id="initialDate"></div>
 							<div class="col-sm-6">Initial deposit to my Economy Account</div>
-							<div class="col-sm-3" style="color:green;">+200 RON</div>
+							<div class="col-sm-3" id="initialDeposit" style="color:green;"></div>
 						</div>
 						</li>					
 					</ul>

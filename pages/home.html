@@ -1,11 +1,21 @@
+<!DOCTYPE html>
 <html>
 
 <head>
 
 	<title>Home page</title>
-
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 	<link rel="stylesheet" href="../css/styleHome.css"/>
-	<link rel="stylesheet" href="../css/styleEcoAccForm.css"/>
+	<link rel="stylesheet" href="../css/styleEcoInfoForm.css"/>
 	<script src="../js/home.js"></script>
 
 </head>
@@ -42,29 +52,60 @@
 				</div>
 
 				<div class="addAction">
+				
+					<div id="economyInfo" onclick="callEcconomyPage()">
+
+						<p id="nameOfEconomyAccount">some text</p>
+						<p id="economyCurrentBalance">some text</p>
+
+					</div>
+					
+					<button id="addEconAcc" data-toggle="modal" data-target="#myModal">Add economy account</button>
+					
+					<!--INFO FORM -->
+					<div id="myModal" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h2 class="modal-title">
+										Create Economy Account
+									</h2>
+								</div>
+								<div class="modal-body">
+									<form role="form" id="reused_form" >
+										<div class="form-group">
+											<label for="name"> Name:</label>
+											<input type="text" class="form-control" id="economy-name" name="name" required maxlength="50">
+										</div>
+										<div class="form-group">
+											<label for="name"> Initial deposit:</label>
+											<input type="number" class="form-control" id="economy-deposit" name="name" required maxlength="50">
+										</div>
+										<div class="form-group" align="center">
+											<label class="radio-inline">
+											  <input type="radio" name="economy-type" id="economy-manual" checked>MANUAL
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="economy-type" id="economy-auto" >AUTO
+											</label>
+										</div>
+										<div class="form-group" align="center">
+											<input type="checkbox" id="economy-reminder" value="optional">Monthly reminder<br>
+										</div>
+										<button type="button" class="btn btn-lg btn-success btn-block" id="btnUpdateInfo" onclick="callEcconomyPage()" data-dismiss="modal">Create account</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END OF INFO FORM -->
+					
+				</div>
+				<div class="addAction2">
 
 					<button class="addWallet" onclick="addNewWallet()">Add wallet</button>
-					<button class="addEconAcc" onclick="openEconomyAccForm()">Add economy account</button>
-					
-					<div class="form-popup" id="myForm">
-					  <form class="form-container">
-						<h1>Create Economy Account</h1>
-
-						<label for="economy-name"><b>Name</b></label>
-						<input type="text" placeholder="Enter Name" name="economy-name" required>
-
-						<label for="economy-deposit"><b>Initial deposit</b></label>
-						<input type="text" placeholder="Enter deposit" name="economy-deposit" required>
-
-						<input type="radio" name="economy-type"> MANUAL<br>
-						<input type="radio" name="economy-type"> AUTO<br>
-						<input type="checkbox" name="economy-reminder" value="optional">Monthly reminder<br>
-						
-						<button type="button" class="btn" onclick="callEcconomyPage()">Create</button>
-						<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-					  </form>
-					</div>
-
 
 				</div>
 

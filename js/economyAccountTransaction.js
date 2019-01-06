@@ -16,6 +16,8 @@ function init(){
 	
 	if(window.localStorage.getItem('economyMessageList') != null){
 		list=window.localStorage.getItem('economyMessageList');
+		console.log(list);
+		document.getElementById("transactionInfo").outerHTML = list;
 	} else {
 		list = document.getElementById("transactionInfo");
 	}
@@ -27,7 +29,22 @@ function init(){
 		currentBalance=200;
 	}
 	
+	if (window.localStorage.getItem('manualOrAuto') == 0 ) {
+		document.getElementById('economy-manual').checked = true;
+	}
+	else {
+		document.getElementById('economy-auto').checked = true;
+	}
+	if (window.localStorage.getItem('monthlyReminder') === 0 ) {
+		document.getElementById('economy-reminder').checked = false;
+	}
+	else {
+		document.getElementById('economy-reminder').checked = true;
+	}
+	
 	document.getElementById("value").innerHTML = currentBalance + " RON";
+	document.getElementById("initialDeposit").innerHTML = "+ " + window.localStorage.getItem('initialDeposit') + " RON";
+	document.getElementById("initialDate").innerHTML = getCurrentDate();
 }
  
  function addTransaction(){
@@ -41,8 +58,8 @@ function init(){
 	var entry = document.createElement('li');
     entry.appendChild(newTransaction('+' + addedValue,addMessage, "color:green;"));
     list.appendChild(entry);
-	console.log(list.outerHTML);
-	window.localStorage.setItem('economyMessageList', JSON.stringify(list));
+	
+	window.localStorage.setItem('economyMessageList', list.outerHTML);
  }
 
  function transferTransaction(){
@@ -56,16 +73,29 @@ function init(){
 	var entry = document.createElement('li');
     entry.appendChild(newTransaction('-' + addedValue,removeMessage, "color:red;"));
     list.appendChild(entry);
-	window.localStorage.setItem('economyMessageList', JSON.stringify(list));
+	window.localStorage.setItem('economyMessageList', list.outerHTML);
  }
  
  function updateEconomy(){
-	 nameOfEconomyAccount = document.getElementById("updatedName").value;
-	document.getElementById("nameOfEconomyAccount").innerHTML = nameOfEconomyAccount;
+	if(document.getElementById("updatedName").value != "") {
+		 nameOfEconomyAccount = document.getElementById("updatedName").value;
+		 window.localStorage.setItem('nameOfEconomyAccount', nameOfEconomyAccount)
+		 document.getElementById("nameOfEconomyAccount").innerHTML = nameOfEconomyAccount;
+	 }
+	if (document.getElementById('economy-manual').checked) {
+		window.localStorage.setItem('manualOrAuto',0);
+	}
+	else {
+		window.localStorage.setItem('manualOrAuto',1);
+	}
+	if(document.getElementById('economy-reminder').checked){
+		window.localStorage.setItem('monthlyReminder',1);
+	} else {
+		window.localStorage.setItem('monthlyReminder',0);
+	}
  }
  
  function newTransaction(addedValue, msg, color){
-	 console.log(message);
 	 
 	 var item = document.createElement('div');
 	 item.setAttribute("class","item");
