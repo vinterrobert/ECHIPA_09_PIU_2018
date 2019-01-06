@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,22 +15,21 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	<link rel="stylesheet" href="../css/styleEconomyAccount.css"/>
-	<link rel="stylesheet" href="../css/styleEcoAccForm.css"/>
+	<link rel="stylesheet" href="../css/styleEcoInfoForm.css"/>
 	<script src="../js/home.js"></script>
+	<script src="../js/economyAccountTransaction.js"></script>
 
 </head>
 
 <body>
 
 	<div class="container">
-
 		<div class="header"> 
 
 			<img class="topSpendee" src="../images/spendee.jpg"/>
 			<h1>FinancialPlanner</h1>
 
 			<div class="avatarUser">
-
 				<img class="topAvatar" src="../images/userAvatar.png">
 				<a href="../index.html" class="topLogout">Logout</a>
 
@@ -37,12 +37,111 @@
 		</div>
 		
 		<div class="main">
-			<h2>Ecconomy Account</h2>
-			
 			<div class="container2">
 				<div class="row">
+					<div class="col-md-8">
+						<h2>Economy Account</h2>
+					</div>
+					<div class="col-md-4">
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"> Info <i class="fas fa-edit"></i></button>
+					</div>
+					
+					<!--INFO FORM -->
+					<div id="myModal" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">
+										Info
+									</h4>
+								</div>
+								<div class="modal-body">
+									<form role="form" id="reused_form" >
+										<div class="form-group">
+											<label for="name"> Name:</label>
+											<input type="text" class="form-control" id="updatedName" name="name" required maxlength="50">
+										</div>
+										<div class="form-group" align="center">
+											<label class="radio-inline">
+											  <input type="radio" name="economy-type" checked>MANUAL
+											</label>
+											<label class="radio-inline">
+											  <input type="radio" name="economy-type">AUTO
+											</label>
+										</div>
+										<div class="form-group" align="center">
+											<input type="checkbox" name="economy-reminder" value="optional">Monthly reminder<br>
+										</div>
+										<button type="button" class="btn btn-lg btn-success btn-block" id="btnUpdateInfo" onclick="updateEconomy()" data-dismiss="modal">Update</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END OF INFO FORM -->
+					
+				</div>
+				<div class="row">
+					<h4 id="nameOfEconomyAccount">""</h4>
+				</div>
+			
+				<div class="row">
 					<div class="col-md-12">
-						<button type="button" class="btn btn-success"><i class="fas fa-plus-circle"></i> Add transaction</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransactionModal" id="addTransactionButton"><i class="fas fa-plus-circle"></i> Add transaction</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#removeTransactionModal" id="removeTransactionButton"><i class="fas fa-minus-circle"></i> Transfer</button>
+						<!--ADD TRANSACTION FORM -->
+						<div id="addTransactionModal" class="modal" tabindex="-1" role="dialog">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h5 class="modal-title">Make a Transaction</h5>
+							  </div>
+							  <div class="modal-body">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="addMoney" id="addMoneyLabel"> Make a deposit to your economy account </label>
+										<input type="text" class="form-control" id="addMoney" name="addMoney" required maxlength="50">
+									</div>
+								</div>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" onclick="addTransaction()" data-dismiss="modal">Add funds</button>
+							  </div>
+							</div>
+						  </div>
+						</div>
+						<!--ADD TRANSACTION FORM -->
+						
+						<!--TRANSFER TRANSACTION FORM -->
+						<div id="removeTransactionModal" class="modal" tabindex="-1" role="dialog">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h5 class="modal-title">Make a Transaction</h5>
+							  </div>
+							  <div class="modal-body">
+								<div class="row">
+									<div class="col-md-12">
+										<label for="removeMoney" id="removeMoneyLabel"> Transfer to your personal account </label>
+										<input type="text" class="form-control" id="removeMoney" name="removeMoney" required maxlength="50">
+									</div>
+								</div>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" onclick="transferTransaction()" data-dismiss="modal">Remove funds</button>
+							  </div>
+							</div>
+						  </div>
+						</div>
+						<!--TRANSFER TRANSACTION FORM -->
+								
+						
 						<input type="text" name="daterange" id="daterange" value="12/01/2018 - 12/31/2018" />
 
 						<script>
@@ -59,25 +158,24 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<div class="groups">
-							<div class="groupInfo" onclick="openMyGroups()">
-								<p class="myGroups">Current Balance</p>
-								<p class="groupsMsg">200 RON</p>
+						<div class="economy">
+							<div class="economyInfoBalance">
+								<p id="currentBalance">Current Balance</p>
+								<p id="value"></p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class ="transactionInfo">
+					<ul id ="transactionInfo">				
+						<li>
 						<div class="item">
-							<div class="col-6 col-md-4">12/09/2018</div>
-							<div class="col-12 col-md-8">mesage</div>
+							<div class="col-sm-3">12/09/2018</div>
+							<div class="col-sm-6">Initial deposit to my Economy Account</div>
+							<div class="col-sm-3" style="color:green;">+200 RON</div>
 						</div>
-						<div class="item">
-							<div class="col-6 col-md-4">12/09/2018</div>
-							<div class="col-12 col-md-8">tranzactie2</div>
-						</div>
-					</div>
+						</li>					
+					</ul>
 				</div>
 			</div>
 		</div>
