@@ -34,7 +34,7 @@ div.avatarUser{
 	float: right;
 	height: 70px;
 	width: 120px;
-	margin-top: -65px;
+	margin-top: -50px;
 }
 
 div.main{
@@ -333,6 +333,7 @@ button.btnSaveWallet{
 }
 
 button.btnCloseWallet{
+	position: absolute;
 	background-color: white;
 	color: #324c5b;
 	width: 50px;
@@ -348,5 +349,5 @@ button.btnCloseWallet{
 	padding: 0 8px;
 	text-overflow: ellipsis;
 	margin-left: 450px;
-	margin-top: -365px;
+	margin-top: -355px;
 }

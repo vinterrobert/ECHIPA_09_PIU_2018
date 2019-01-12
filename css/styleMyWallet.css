@@ -20,7 +20,7 @@ div.avatarUser{
 	float: right;
 	height: 70px;
 	width: 120px;
-	margin-top: -65px;
+	margin-top: -50px;
 }
 
 div.main{
@@ -35,6 +35,35 @@ div.walletInfo{
 	width: 250px;
     height: 100px;
     margin-bottom: 30px;
+}
+
+div.item{
+	margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+    height: 30px;
+	box-shadow: 1px 1px 0px 0px #66666661;
+}
+
+div.myTransactions{
+    margin-top: 50px;
+}
+
+#transactionsInfo{
+	clear:both;
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	cursor: pointer;
+	margin-left: 20px;
+	margin-top: 40px;
+	width: 90%;
+	height: auto;
+}
+
+ul {
+  list-style-type: none;
 }
 
 img.topSpendee{
