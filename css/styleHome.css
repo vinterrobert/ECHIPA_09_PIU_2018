@@ -59,10 +59,25 @@ div.walletInfo{
 	cursor: pointer;
 }
 
+#economyInfo{
+	border: 5px solid white;
+	border-radius: 15px;
+	background-color: white;
+	width: 250px;
+	height: 100px;
+	cursor: pointer;
+}
+
 div.addAction{
 	width: 250px;
 	margin-top: -110px;
 	margin-left: 400px;
+}
+
+div.addAction2{
+	width: 250px;
+	margin-top: -47px;
+	margin-left: 800px;
 }
 
 div.groups{
@@ -180,6 +195,17 @@ p.walletMessage{
 	margin-left: 30px;
 }
 
+#nameOfEconomyAccount{
+	color: #324c5b;
+	margin-left: 30px;
+	font-weight: bold;
+}
+
+#economyCurrentBalance{
+	color: black;
+	margin-left: 30px;
+}
+
 p.myGroups{
 	color: #324c5b;
 	margin-left: 30px;
@@ -224,7 +250,7 @@ button.addWallet:hover{
 	box-shadow: 5px 5px 5px grey;
 }
 
-button.addEconAcc{
+#addEconAcc{
 	background-color: white;
 	color: #12c48b;
 	width: 100%;
@@ -241,7 +267,7 @@ button.addEconAcc{
 	text-overflow: ellipsis;
 }
 
-button.addEconAcc:hover{
+#addEconAcc:hover{
 	box-shadow: 5px 5px 5px grey;
 }
 
