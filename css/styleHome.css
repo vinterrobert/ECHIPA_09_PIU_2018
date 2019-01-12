@@ -122,7 +122,6 @@ div.createWallet{
 div.formWalletContainer{
 	opacity: 1;
 	padding: 10px;
-	margin-left: 100px;
 }
 
 input[type=text]{
@@ -323,5 +322,5 @@ button.btnCloseWallet{
 	padding: 0 8px;
 	text-overflow: ellipsis;
 	margin-left: 450px;
-	margin-top: -350px;
+	margin-top: -365px;
 }

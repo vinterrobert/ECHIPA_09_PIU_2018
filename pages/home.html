@@ -49,7 +49,7 @@
 
 				<div class="createWallet">
 
-					<form class="formWalletContainer">
+					<form class="formWalletContainer" method="POST" onsubmit="return false">
 
 						<h1>Add new wallet</h1>
 
@@ -65,9 +65,11 @@
 						<br>
 						<input id="amountWalletInput" type="text" name="amount" placeholder="Enter initial amount"/>
 
+						<!-- <p>The amount should be a number</p> -->
+
 						<br>
 
-						<button class="btnSaveWallet" onclick="saveWalletSettings()">Save</button>
+						<button class="btnSaveWallet" type="submit" onclick="saveWalletSettings()">Save</button>
 
 					</form>
 
