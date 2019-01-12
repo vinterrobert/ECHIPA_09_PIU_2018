@@ -21,6 +21,24 @@ function init(){
 		var addEconAcc = document.getElementById("addEconAcc");
 		addEconAcc.style.display = "block";
 	}
+
+	if(window.localStorage.getItem('myWallet') != null){
+		var walletInfo = document.getElementsByClassName('walletInfo')[0];
+		walletInfo.style.display = "block";
+
+		var addWallet = document.getElementsByClassName('addWallet')[0];
+		addWallet.style.display = "none";
+
+		document.getElementsByClassName("myWallet")[0].innerHTML = window.localStorage.getItem('myWallet');
+		document.getElementsByClassName("walletMessage")[0].innerHTML = window.localStorage.getItem('walletMessage') + " RON";
+	}else{
+		var walletInfo = document.getElementsByClassName('walletInfo')[0];
+		walletInfo.style.display = "none";
+
+		var addWallet = document.getElementsByClassName('addWallet')[0];
+		addWallet.style.display = "block";
+	}
+
 }
 
 function openMyWallet() {
@@ -60,9 +78,14 @@ function saveWalletSettings(){
 	walletAmount = document.getElementById("amountWalletInput").value;
 	if(!isNaN(walletAmount)){
 		document.getElementsByClassName("myWallet")[0].innerHTML = walletName;
-		document.getElementsByClassName("walletMessage")[0].innerHTML = walletAmount;
+		document.getElementsByClassName("walletMessage")[0].innerHTML = walletAmount + " RON";
 		document.getElementsByClassName("createWallet")[0].style.display = "none";
 		document.getElementsByClassName("addWallet")[0].style.display = "none";	
+		document.getElementsByClassName('walletInfo')[0].style.display = "block";
+
+		window.localStorage.setItem('myWallet', walletName);
+		window.localStorage.setItem('walletMessage', walletAmount);
+
 	}else{
 		alert("not a number");
 		document.getElementsByClassName("createWallet")[0].style.display = "block";

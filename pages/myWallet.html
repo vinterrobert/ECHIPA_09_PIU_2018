@@ -4,11 +4,84 @@
 
 	<title>My Wallet</title>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+	 crossorigin="anonymous">
+
+	<link rel="stylesheet" href="../css/styleMyWallet.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+	<script src="../js/myWallet.js"></script>
+
 </head>
 
 <body>
 
-<h1>My wallet page</h1>
+	<div class="container">
+
+		<div class="header">
+
+			<img class="topSpendee" src="../images/spendee.jpg" />
+			<h1>FinancialPlanner</h1>
+
+			<div class="avatarUser">
+
+				<img class="topAvatar" src="../images/userAvatar.png">
+				<a href="../index.html" class="topLogout">Logout</a>
+
+			</div>
+
+		</div>
+
+		<div class="main">
+
+			<h2>Personal wallet</h2>
+
+			<div class="walletInfo">
+
+				<p id="walletName"></p>
+				<p id="walletDeposit"></p>
+
+			</div>
+
+			<div class="walletActions">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransactionModal" id="addTransactionBtn"><i
+							 class="fas fa-plus-circle"></i> Add transaction</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#setExpensesBudgetModal" id="setExpensesBudgetBtn"><i
+							 class="fas fa-plus-circle"></i> Set expenses budget</button>
+
+						<input type="text" name="daterange" id="daterange" value="12/01/2018 - 12/31/2018" />
+
+						<script>
+							$(function () {
+								$('input[name="daterange"]').daterangepicker({
+									opens: 'left'
+								}, function (start, end, label) {
+									console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+								});
+							});
+						</script>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </body>
 
