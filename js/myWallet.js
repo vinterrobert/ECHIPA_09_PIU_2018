@@ -4,6 +4,10 @@ var newExpensesBudget = -1;
 var walletAmount = -1;
 var listOfTransactions;
 var receiptImg;
+var amountEON = 100;
+var amountDIGI = 40;
+var amountSalubrizare = 20;
+var amountElectrica = 70;
 
 function init() {
 
@@ -37,6 +41,46 @@ function setExpensesBudget() {
     window.localStorage.setItem('walletMessage', window.localStorage.getItem('walletMessage') - newExpensesBudget);
 
     return false;
+}
+
+function automateBills(){
+
+    var currentBalance = Number(window.localStorage.getItem('walletMessage'));
+
+    var billOptions = document.getElementById("billName");
+    var optionSelected = billOptions.options[billOptions.selectedIndex].value;
+    var transactionName = billOptions.options[billOptions.selectedIndex].text;
+
+    var amount = -1;
+    if(optionSelected == 1){
+        currentBalance -= amountEON;
+        amount = amountEON;
+    }else{
+        if(optionSelected == 2){
+            currentBalance -= amountElectrica;
+            amount = amountElectrica;
+        }else{
+            if(optionSelected == 3){
+                currentBalance -= amountSalubrizare;
+                amount = amountSalubrizare;
+            }else{
+                currentBalance -= amountDIGI;
+                amount = amountDIGI;
+            }
+        }
+    }
+
+    if(currentBalance > 0){
+        window.localStorage.setItem('walletMessage', currentBalance);
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
+    }else{
+        alert("You don't have enough money for automated bill");
+    }
+
+    listOfTransactions = document.getElementById("transactionsInfo");
+    var entry = document.createElement('li');
+    entry.appendChild(newTransaction('-' + amount, transactionName, "Automated bill", "color:red;"));
+    listOfTransactions.appendChild(entry);
 }
 
 function addTransaction() {
