@@ -38,6 +38,49 @@ function setExpensesBudget() {
     return false;
 }
 
+function addTransactionsFromReceipt(){
+   
+    var amount1 = 2;
+    var amount2 = 15;
+    var amount3 = 3;
+    var amountSum = amount1 + amount2 + amount3;
+
+    var currentBalance = Number(window.localStorage.getItem('expensesBudget'));
+    if( (currentBalance - amountSum) < 0){
+        currentBalance = Number(window.localStorage.getItem('walletMessage'));
+        currentBalance -= amountSum;
+        window.localStorage.setItem('walletMessage', currentBalance);
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+
+    }else{
+        currentBalance -= amountSum;
+        window.localStorage.setItem('expensesBudget', currentBalance);
+        document.getElementById("expensesBudget").innerHTML = "Expenses budget: " + window.localStorage.getItem('expensesBudget') + " RON";
+    }
+
+    var transactionCategory = "Food&Drinks";
+
+    var transaction1Name = "Water";
+    var transaction2Name = "Pizza";
+    var transaction3Name = "Coke";
+
+    var entry1 = document.createElement('li');
+    entry1.appendChild(newTransaction('-' + amount1, transaction1Name, transactionCategory, "color:red;"));
+
+    var entry2 = document.createElement('li');
+    entry2.appendChild(newTransaction('-' + amount2, transaction2Name, transactionCategory, "color:red;"));
+
+    var entry3 = document.createElement('li');
+    entry3.appendChild(newTransaction('-' + amount3, transaction3Name, transactionCategory, "color:red;"));
+
+    listOfTransactions = document.getElementById("transactionsInfo");
+    listOfTransactions.appendChild(entry1);
+    listOfTransactions.appendChild(entry2);
+    listOfTransactions.appendChild(entry3);
+    
+    return false;
+}
+
 function addTransaction() {
 
     var categoryOptions = document.getElementById("transactionCategory");
