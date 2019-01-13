@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -40,8 +41,12 @@
 			<div class="container2">
 				<div class="row">
 					<div class="col-md-8">
-						<h2>Economy Account</h2>
+						<h2 onclick="myFunction()">Economy Account</h2>
 					</div>
+
+					<!-- The actual snackbar -->
+					<div id="snackbar">Monthly reminder: Did you save any money this month?</div> 
+
 					<div class="col-md-4">
 						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"> Info <i class="fas fa-edit"></i></button>
 					</div>
