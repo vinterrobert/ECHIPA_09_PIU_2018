@@ -11,6 +11,10 @@
 
 	<link rel="stylesheet" href="../css/styleMyWallet.css" />
 
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -61,6 +65,8 @@
 							 class="fas fa-minus-circle"></i> Add transaction</button>
 						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#setExpensesBudgetModal" id="setExpensesBudgetBtn"><i
 							 class="fas fa-plus-circle"></i> Set expenses budget</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#uploadReceiptModal" id="uploadReceiptBtn"><i
+							 class="fas fa-plus-circle"></i> Upload receipt</button>
 
 						<input type="text" name="daterange" id="daterange" value="01/01/2019 - 01/30/2019" />
 
@@ -147,6 +153,33 @@
 				</div>
 			</div>
 			<!--ADD TRANSACTION FORM -->
+
+			<!--ADD RECEIPT FORM -->
+			<div id="uploadReceiptModal" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h5 class="modal-title">Upload Receipt</h5>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+									<form id="receiptUpdload">
+									  <input type="file" name="pic" accept="image/*" onchange="readURL(this);">
+    									<img id="receipt" src="#" alt="" />
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" onclick="addReceipt()" data-dismiss="modal">Add receipt</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--ADD RECEIPT FORM -->
 
 			<div class="myTransactions">
 

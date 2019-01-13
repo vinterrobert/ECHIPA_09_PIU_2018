@@ -3,6 +3,7 @@ var existTransactions = false;
 var newExpensesBudget = -1;
 var walletAmount = -1;
 var listOfTransactions;
+var receiptImg;
 
 function init() {
 
@@ -135,4 +136,102 @@ function getCurrentDate() {
     today = mm + '/' + dd + '/' + yyyy;
 
     return today;
+}
+
+function readURL(input) {
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    receiptImg = e.target.result;
+                    $('#receipt')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+}
+
+function addReceipt() {
+
+    var transactionCategory = "Shopping"
+
+    var transactionName = "Uploaded receipt"
+
+    var amount = "43.79"
+
+    listOfTransactions = document.getElementById("transactionsInfo");
+    var entry = document.createElement('li');
+
+    var currentBalance = -1;
+
+
+        currentBalance = Number(window.localStorage.getItem('expensesBudget'));
+        currentBalance -= amount;
+        if (currentBalance < 0) {
+            currentBalance = Number(window.localStorage.getItem('walletMessage'));
+            currentBalance -= Number(amount);
+
+            window.localStorage.setItem('walletMessage', currentBalance);
+            document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+            
+        } else {
+            window.localStorage.setItem('expensesBudget', currentBalance);
+            document.getElementById("expensesBudget").innerHTML = "Expenses budget:" + window.localStorage.getItem('expensesBudget') + " RON";
+        }
+        entry.appendChild(receiptTransaction('-' + amount, transactionName, transactionCategory, "color:red;"));
+    
+
+    listOfTransactions.appendChild(entry);
+
+    return false;
+}
+
+function receiptTransaction(transactionAmount, image, transactionCategory, color) {
+
+    var item = document.createElement('div');
+    item.setAttribute("class", "item");
+
+    var date = document.createElement('div');
+    date.setAttribute("class", "col-sm-3");
+    date.innerHTML = getCurrentDate();
+
+    var transactionNameElement = document.createElement('div');
+    transactionNameElement.setAttribute("class", "col-sm-3");
+
+    var openNewTab = document.createElement('a');
+    openNewTab.setAttribute("href", receiptImg);
+    openNewTab.setAttribute("target", "_blank");
+
+    var img = document.createElement('img');
+    img.setAttribute("id","receipt");
+    img.setAttribute("src",receiptImg);
+    img.setAttribute("width",30);
+    img.setAttribute("height",30);
+
+    var updloadedReceiptText = document.createElement('span');
+    updloadedReceiptText.innerHTML = "Uploaded receipt    ";
+    
+    openNewTab.appendChild(img);
+    transactionNameElement.appendChild(updloadedReceiptText);
+    transactionNameElement.appendChild(openNewTab);
+
+    var transactionCategoryElement = document.createElement('div');
+    transactionCategoryElement.setAttribute("class", "col-sm-3");
+    transactionCategoryElement.innerHTML = transactionCategory;
+
+    var value = document.createElement('div');
+    value.setAttribute("class", "col-sm-3");
+    value.setAttribute("style", color);
+    value.innerHTML = transactionAmount + " RON";
+
+    item.appendChild(date);
+    item.append(transactionCategoryElement);
+    item.appendChild(transactionNameElement);
+    item.appendChild(value);
+
+    return item;
 }
