@@ -11,7 +11,7 @@ var amountElectrica = 70;
 var threshold = 50;
 
 function init() {
-    
+
     document.getElementById("walletName").innerHTML = "Wallet name: " + window.localStorage.getItem('myWallet');
     document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
 
@@ -25,11 +25,16 @@ function init() {
         document.getElementsByClassName("item")[0].style.display = "none";
     }
 
-    if(window.localStorage.getItem('walletMessage') < threshold){
-        document.getElementById("notify").style.display="block";   
-    }else{
-        document.getElementById("notify").style.display="none";
+    if (window.localStorage.getItem('walletMessage') < threshold) {
+        document.getElementById("notify").style.display = "block";
+    } else {
+        document.getElementById("notify").style.display = "none";
     }
+}
+
+function checkCalendarDate(date) {
+
+    console.log(date);
 }
 
 function setExpensesBudget() {
@@ -50,7 +55,7 @@ function setExpensesBudget() {
     return false;
 }
 
-function automateBills(){
+function automateBills() {
 
     var currentBalance = Number(window.localStorage.getItem('walletMessage'));
 
@@ -58,41 +63,51 @@ function automateBills(){
     var optionSelected = billOptions.options[billOptions.selectedIndex].value;
     var transactionName = billOptions.options[billOptions.selectedIndex].text;
 
-    var amount = -1;
-    if(optionSelected == 1){
+    var amount;
+    if (optionSelected === 1) {
         currentBalance -= amountEON;
         amount = amountEON;
-    }else{
-        if(optionSelected == 2){
+    } else {
+        if (optionSelected === 2) {
             currentBalance -= amountElectrica;
             amount = amountElectrica;
-        }else{
-            if(optionSelected == 3){
+        } else {
+            if (optionSelected === 3) {
                 currentBalance -= amountSalubrizare;
                 amount = amountSalubrizare;
-            }else{
-                currentBalance -= amountDIGI;
-                amount = amountDIGI;
+            } else {
+                if (optionSelected === 4) {
+                    currentBalance -= amountDIGI;
+                    amount = amountDIGI;
+                } else {
+                    optionSelected = -1;
+                }
             }
         }
     }
 
-    if(currentBalance > 0){
+    console.log("Optiune: " + Number(optionSelected));
+    console.log(currentBalance);
+    if (currentBalance > 0 && optionSelected > 0) {
         window.localStorage.setItem('walletMessage', currentBalance);
         document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
-        if(currentBalance < threshold){
-            document.getElementById("notify").style.display="block";   
-        }else{
-            document.getElementById("notify").style.display="none";
-        }
-    }else{
-        alert("You don't have enough money for automated bill");
-    }
 
-    listOfTransactions = document.getElementById("transactionsInfo");
-    var entry = document.createElement('li');
-    entry.appendChild(newTransaction('-' + amount, transactionName, "Automated bill", "color:red;"));
-    listOfTransactions.appendChild(entry);
+        listOfTransactions = document.getElementById("transactionsInfo");
+        var entry = document.createElement('li');
+        entry.appendChild(newTransaction('-' + amount, transactionName, "Automated bill", "color:red;"));
+        listOfTransactions.appendChild(entry);
+
+        if (currentBalance < threshold) {
+            document.getElementById("notify").style.display = "block";
+        } else {
+            document.getElementById("notify").style.display = "none";
+        }
+    } else {
+        if (optionSelected != -1) {
+            alert("You don't have enough money for automated bill");
+            console.log("Optiune: " + Number(optionSelected));
+        }
+    }
 }
 
 function addTransaction() {
@@ -120,10 +135,10 @@ function addTransaction() {
         document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
         entry.appendChild(newTransaction('+' + amount, transactionName, transactionCategory, "color:green;"));
 
-        if(currentBalance < threshold){
-            document.getElementById("notify").style.display="block";   
-        }else{
-            document.getElementById("notify").style.display="none";
+        if (currentBalance < threshold) {
+            document.getElementById("notify").style.display = "block";
+        } else {
+            document.getElementById("notify").style.display = "none";
         }
 
     } else {
@@ -138,10 +153,10 @@ function addTransaction() {
             } else {
                 window.localStorage.setItem('walletMessage', currentBalance);
                 document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
-                if(currentBalance < threshold){
-                    document.getElementById("notify").style.display="block";   
-                }else{
-                    document.getElementById("notify").style.display="none";
+                if (currentBalance < threshold) {
+                    document.getElementById("notify").style.display = "block";
+                } else {
+                    document.getElementById("notify").style.display = "none";
                 }
             }
         } else {
@@ -207,20 +222,20 @@ function getCurrentDate() {
 }
 
 function readURL(input) {
-            
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    receiptImg = e.target.result;
-                    $('#receipt')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-                reader.readAsDataURL(input.files[0]);
-            }
+        reader.onload = function (e) {
+            receiptImg = e.target.result;
+            $('#receipt')
+                .attr('src', e.target.result)
+                .width(150)
+                .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 
 function addReceipt() {
@@ -237,27 +252,27 @@ function addReceipt() {
     var currentBalance = -1;
 
 
-        currentBalance = Number(window.localStorage.getItem('expensesBudget'));
-        currentBalance -= amount;
-        if (currentBalance < 0) {
-            currentBalance = Number(window.localStorage.getItem('walletMessage'));
-            currentBalance -= Number(amount);
+    currentBalance = Number(window.localStorage.getItem('expensesBudget'));
+    currentBalance -= amount;
+    if (currentBalance < 0) {
+        currentBalance = Number(window.localStorage.getItem('walletMessage'));
+        currentBalance -= Number(amount);
 
-            window.localStorage.setItem('walletMessage', currentBalance);
-            document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+        window.localStorage.setItem('walletMessage', currentBalance);
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
 
-            if(currentBalance < threshold){
-                document.getElementById("notify").style.display="block";   
-            }else{
-                document.getElementById("notify").style.display="none";
-            }
-            
+        if (currentBalance < threshold) {
+            document.getElementById("notify").style.display = "block";
         } else {
-            window.localStorage.setItem('expensesBudget', currentBalance);
-            document.getElementById("expensesBudget").innerHTML = "Expenses budget:" + window.localStorage.getItem('expensesBudget') + " RON";
+            document.getElementById("notify").style.display = "none";
         }
-        entry.appendChild(receiptTransaction('-' + amount, transactionName, transactionCategory, "color:red;"));
-    
+
+    } else {
+        window.localStorage.setItem('expensesBudget', currentBalance);
+        document.getElementById("expensesBudget").innerHTML = "Expenses budget:" + window.localStorage.getItem('expensesBudget') + " RON";
+    }
+    entry.appendChild(receiptTransaction('-' + amount, transactionName, transactionCategory, "color:red;"));
+
 
     listOfTransactions.appendChild(entry);
 
@@ -281,14 +296,14 @@ function receiptTransaction(transactionAmount, image, transactionCategory, color
     openNewTab.setAttribute("target", "_blank");
 
     var img = document.createElement('img');
-    img.setAttribute("id","receipt");
-    img.setAttribute("src",receiptImg);
-    img.setAttribute("width",30);
-    img.setAttribute("height",30);
+    img.setAttribute("id", "receipt");
+    img.setAttribute("src", receiptImg);
+    img.setAttribute("width", 30);
+    img.setAttribute("height", 30);
 
     var updloadedReceiptText = document.createElement('span');
     updloadedReceiptText.innerHTML = "Uploaded receipt    ";
-    
+
     openNewTab.appendChild(img);
     transactionNameElement.appendChild(updloadedReceiptText);
     transactionNameElement.appendChild(openNewTab);
