@@ -32,11 +32,6 @@ function init() {
     }
 }
 
-function checkCalendarDate(date) {
-
-    console.log(date);
-}
-
 function setExpensesBudget() {
 
     var newBudget = Number(document.getElementById("setBudget").value);
@@ -60,23 +55,23 @@ function automateBills() {
     var currentBalance = Number(window.localStorage.getItem('walletMessage'));
 
     var billOptions = document.getElementById("billName");
-    var optionSelected = billOptions.options[billOptions.selectedIndex].value;
+    var optionSelected = Number(billOptions.options[billOptions.selectedIndex].value);
     var transactionName = billOptions.options[billOptions.selectedIndex].text;
 
     var amount;
-    if (optionSelected === 1) {
+    if (optionSelected == 1) {
         currentBalance -= amountEON;
         amount = amountEON;
     } else {
-        if (optionSelected === 2) {
+        if (optionSelected == 2) {
             currentBalance -= amountElectrica;
             amount = amountElectrica;
         } else {
-            if (optionSelected === 3) {
+            if (optionSelected == 3) {
                 currentBalance -= amountSalubrizare;
                 amount = amountSalubrizare;
             } else {
-                if (optionSelected === 4) {
+                if (optionSelected == 4) {
                     currentBalance -= amountDIGI;
                     amount = amountDIGI;
                 } else {
