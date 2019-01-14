@@ -131,9 +131,10 @@ function addTransaction() {
     if (optionSelected == 6) {
         currentBalance = Number(window.localStorage.getItem('walletMessage'));
         currentBalance += Number(amount);
+        currentBalance.toFixed(2);
 
         window.localStorage.setItem('walletMessage', currentBalance);
-        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance.toFixed(2) + " RON";
         entry.appendChild(newTransaction('+' + amount, transactionName, transactionCategory, "color:green;"));
 
         if (currentBalance < threshold) {
@@ -245,7 +246,7 @@ function addReceipt() {
 
     var transactionName = "Uploaded receipt"
     var amount = 43.79;
-    
+
     listOfTransactions = document.getElementById("transactionsInfo");
     var entry = document.createElement('li');
 
