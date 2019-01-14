@@ -91,7 +91,7 @@ function automateBills() {
     console.log(currentBalance);
     if (currentBalance > 0 && optionSelected > 0) {
         window.localStorage.setItem('walletMessage', currentBalance);
-        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance.toFixed(2) + " RON";
 
         listOfTransactions = document.getElementById("transactionsInfo");
         var entry = document.createElement('li');
