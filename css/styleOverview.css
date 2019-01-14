@@ -1,0 +1,235 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+h1{
+	position: relative;
+	top:18px;
+	left: 10px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h2{
+	color: #324c5b;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	font-family: 'Raleway', sans-serif;
+}
+
+div.container{
+	width: 100%;
+	height: 850px;
+	background-color: #f4f7fa;
+	font-family: 'Raleway', sans-serif;
+}
+
+div.header{
+	background: white;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 70px;
+}
+
+div.avatarUser{
+	position: relative;
+	float: right;
+	height: 70px;
+	width: 120px;
+	margin-top: -50px;
+}
+
+a.overviewLink{
+	position: relative;
+	color: #12c48b;
+	display: inline-block;
+	top: -40px;
+	left: 450px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: underline;
+}
+
+a.homeLink{
+	position: relative;
+	color: #12c48b;
+	display: inline-block;
+	top: -40px;
+	left: 400px;
+	font-family: 'Raleway', sans-serif;
+}
+
+a.statisticsLink {
+	position: relative;
+	color: #12c48b;
+	display: inline-block;
+	top: -40px;
+	left: 500px;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+div.main{
+	margin-top: 70px;
+	margin-left: 100px;
+}
+
+img.topSpendee{
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	width: 60px;
+}
+
+img.topAvatar{
+	float: right;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 60px;
+}
+
+a.topLogout{
+	float: right;
+	color: black;
+	margin-top: -30px;
+	margin-right: 40px;
+}
+
+ul {list-style-type: none;}
+
+.overviewBody {
+	padding-top: 70px;
+
+}
+
+.month {
+  padding: 50px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .green {
+  padding: 5px;
+  background: #1abc9c;
+  color: white
+}
+
+.days li .red {
+  padding: 5px;
+  background: #8B0000;
+  color: white
+}
+
+.days li .orange {
+  padding: 5px;
+  background: #FF8C00;
+  color: white
+}
+
+.legend {
+	width: 20%;
+	float: right;
+	padding-top: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 5px;
+	border-color: black;
+	align-content: center;
+	padding-left: 20px;
+	margin-top: 50px;
+}
+
+.legend .red p {
+	background: #8B0000;
+	color:#8B0000;
+
+	display: inline-block;
+	padding-left: 30px;
+}
+
+.legend .orange p {
+	background: #FF8C00;
+	color:#FF8C00;
+	padding-left: 30px;
+	display: inline-block;
+}
+
+.legend .green p {
+	background: #1abc9c;
+	color:#1abc9c;
+	padding-left: 30px;
+	display: inline-block;
+}
+
+.legend .green div{
+	display: inline-block;
+	padding-left: 10px;
+	color: black;
+}
+
+.legend .orange div{
+	display: inline-block;
+	padding-left: 10px;
+	color: black;
+}
+
+.legend .red div{
+	display: inline-block;
+	padding-left: 10px;
+	color: black;
+}
+
+
+
+
+
