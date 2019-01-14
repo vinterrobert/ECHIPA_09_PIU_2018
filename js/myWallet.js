@@ -244,9 +244,8 @@ function addReceipt() {
     var transactionCategory = "Shopping"
 
     var transactionName = "Uploaded receipt"
-
-    var amount = "43.79"
-
+    var amount = 43.79;
+    
     listOfTransactions = document.getElementById("transactionsInfo");
     var entry = document.createElement('li');
 
