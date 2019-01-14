@@ -8,9 +8,10 @@ var amountEON = 100;
 var amountDIGI = 40;
 var amountSalubrizare = 20;
 var amountElectrica = 70;
+var threshold = 50;
 
 function init() {
-
+    
     document.getElementById("walletName").innerHTML = "Wallet name: " + window.localStorage.getItem('myWallet');
     document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
 
@@ -22,6 +23,12 @@ function init() {
 
     if (!existTransactions) {
         document.getElementsByClassName("item")[0].style.display = "none";
+    }
+
+    if(window.localStorage.getItem('walletMessage') < threshold){
+        document.getElementById("notify").style.display="block";   
+    }else{
+        document.getElementById("notify").style.display="none";
     }
 }
 
@@ -73,6 +80,11 @@ function automateBills(){
     if(currentBalance > 0){
         window.localStorage.setItem('walletMessage', currentBalance);
         document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
+        if(currentBalance < threshold){
+            document.getElementById("notify").style.display="block";   
+        }else{
+            document.getElementById("notify").style.display="none";
+        }
     }else{
         alert("You don't have enough money for automated bill");
     }
@@ -107,6 +119,13 @@ function addTransaction() {
         window.localStorage.setItem('walletMessage', currentBalance);
         document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
         entry.appendChild(newTransaction('+' + amount, transactionName, transactionCategory, "color:green;"));
+
+        if(currentBalance < threshold){
+            document.getElementById("notify").style.display="block";   
+        }else{
+            document.getElementById("notify").style.display="none";
+        }
+
     } else {
         currentBalance = Number(window.localStorage.getItem('expensesBudget'));
         currentBalance -= amount;
@@ -119,6 +138,11 @@ function addTransaction() {
             } else {
                 window.localStorage.setItem('walletMessage', currentBalance);
                 document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+                if(currentBalance < threshold){
+                    document.getElementById("notify").style.display="block";   
+                }else{
+                    document.getElementById("notify").style.display="none";
+                }
             }
         } else {
             window.localStorage.setItem('expensesBudget', currentBalance);
@@ -221,6 +245,12 @@ function addReceipt() {
 
             window.localStorage.setItem('walletMessage', currentBalance);
             document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+
+            if(currentBalance < threshold){
+                document.getElementById("notify").style.display="block";   
+            }else{
+                document.getElementById("notify").style.display="none";
+            }
             
         } else {
             window.localStorage.setItem('expensesBudget', currentBalance);
