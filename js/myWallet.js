@@ -47,6 +47,12 @@ function setExpensesBudget() {
     document.getElementById("walletDeposit").innerHTML = "Current balance: " + (window.localStorage.getItem('walletMessage') - newExpensesBudget) + " RON";
     window.localStorage.setItem('walletMessage', window.localStorage.getItem('walletMessage') - newExpensesBudget);
 
+    if (window.localStorage.getItem('walletMessage') < threshold) {
+        document.getElementById("notify").style.display = "block";
+    } else {
+        document.getElementById("notify").style.display = "none";
+    }
+    
     return false;
 }
 
