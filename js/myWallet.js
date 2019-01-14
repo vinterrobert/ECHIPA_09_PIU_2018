@@ -260,7 +260,7 @@ function addReceipt() {
         currentBalance -= Number(amount);
 
         window.localStorage.setItem('walletMessage', currentBalance);
-        document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+        document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance.toFixed(2) + " RON";
 
         if (currentBalance < threshold) {
             document.getElementById("notify").style.display = "block";
