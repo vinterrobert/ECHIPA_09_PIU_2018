@@ -37,7 +37,17 @@ div.avatarUser{
 	margin-top: -50px;
 }
 
-a.overview{
+a.overviewLink{
+	position: relative;
+	color: #12c48b;
+	display: inline-block;
+	top: -40px;
+	left: 450px;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: underline;
+}
+
+a.homeLink{
 	position: relative;
 	color: #12c48b;
 	display: inline-block;
@@ -45,6 +55,16 @@ a.overview{
 	left: 400px;
 	font-family: 'Raleway', sans-serif;
 }
+
+a.statisticsLink {
+	position: relative;
+	color: #12c48b;
+	display: inline-block;
+	top: -40px;
+	left: 500px;
+	font-family: 'Raleway', sans-serif;
+}
+
 
 div.main{
 	margin-top: 70px;
