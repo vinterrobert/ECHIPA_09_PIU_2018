@@ -5,11 +5,12 @@ var walletAmount = -1;
 var listOfTransactions;
 var receiptImg;
 var transactionImg;
+var childFriendlyWallet = 0;
 
 function init() {
-
+	window.localStorage.setItem('childFriendlyWallet', 0);
     document.getElementById("walletName").innerHTML = "Wallet name: Personal Wallet";
-    document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+    document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('childFriendlyWallet') + " RON";
 
     if (!existTransactions) {
         document.getElementsByClassName("item")[0].style.display = "none";
@@ -39,22 +40,22 @@ function addTransaction() {
     var currentBalance = -1;
 
     if (optionSelected == 4) {
-        currentBalance = Number(window.localStorage.getItem('walletMessage'));
+        currentBalance = Number(window.localStorage.getItem('childFriendlyWallet'));
         currentBalance += Number(amount);
 
-        window.localStorage.setItem('walletMessage', currentBalance);
+        window.localStorage.setItem('childFriendlyWallet', currentBalance);
         document.getElementById("walletDeposit").innerHTML = "Current balance: " + currentBalance + " RON";
         entry.appendChild(newTransaction('+' + amount, transactionName, transactionCategory, "color:green;"));
     } else {
         
-            currentBalance = Number(window.localStorage.getItem('walletMessage'));
+            currentBalance = Number(window.localStorage.getItem('childFriendlyWallet'));
             currentBalance -= Number(amount);
 
             if (currentBalance < 0) {
                 alert("You don't have enough funds");
             } else {
-                window.localStorage.setItem('walletMessage', currentBalance);
-                document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+                window.localStorage.setItem('childFriendlyWallet', currentBalance);
+                document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('childFriendlyWallet') + " RON";
             }
         if(img == ""){
             entry.appendChild(newTransaction('-' + amount, transactionName, transactionCategory, "color:red;"));
@@ -153,11 +154,11 @@ function addReceipt() {
         currentBalance = Number(window.localStorage.getItem('expensesBudget'));
         currentBalance -= amount;
         if (currentBalance < 0) {
-            currentBalance = Number(window.localStorage.getItem('walletMessage'));
+            currentBalance = Number(window.localStorage.getItem('childFriendlyWallet'));
             currentBalance -= Number(amount);
 
-            window.localStorage.setItem('walletMessage', currentBalance);
-            document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('walletMessage') + " RON";
+            window.localStorage.setItem('childFriendlyWallet', currentBalance);
+            document.getElementById("walletDeposit").innerHTML = "Current balance: " + window.localStorage.getItem('childFriendlyWallet') + " RON";
             
         } else {
             window.localStorage.setItem('expensesBudget', currentBalance);
