@@ -42,18 +42,8 @@ a.overviewLink{
 	color: #12c48b;
 	display: inline-block;
 	top: -40px;
-	left: 450px;
+	left: 520px;
 	font-family: 'Raleway', sans-serif;
-}
-
-a.homeLink{
-	position: relative;
-	color: #12c48b;
-	display: inline-block;
-	top: -40px;
-	left: 400px;
-	font-family: 'Raleway', sans-serif;
-	text-decoration: underline;
 }
 
 a.statisticsLink {
@@ -61,7 +51,7 @@ a.statisticsLink {
 	color: #12c48b;
 	display: inline-block;
 	top: -40px;
-	left: 500px;
+	left: 570px;
 	font-family: 'Raleway', sans-serif;
 }
 
