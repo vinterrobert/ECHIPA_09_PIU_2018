@@ -3,12 +3,114 @@
 <head>
 
 	<title>My Groups</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<link rel="stylesheet" href="../css/styleMyGroups.css"/>
+	<link rel="stylesheet" href="../css/styleEcoInfoForm.css"/>
+	<script src="../js/myGroups.js"></script>
 
 </head>
 
 <body>
 
-<h1>My groups page</h1>
+<div class="container">
+
+		<div class="header"> 
+
+			<img class="topSpendee" src="../images/spendee.jpg"/>
+			<h1>FinancialPlanner</h1>
+
+			<div class="avatarUser">
+
+				<img class="topAvatar" src="../images/userAvatar.png">
+				<a href="../index.html" class="topLogout">Logout</a>
+
+			</div>
+
+		</div>
+		
+
+	<div class="main">
+
+			<h2>My Groups</h2>
+
+			<div class="groupsInfo">
+				<div id = "group1">
+					<img class="groupAvatar" src="../images/groupAvatar.jpg" onclick="getGroupInfo()">
+					<p id="groupNumber">No.1</p>
+					<p id="walletName"></p>
+					<p id="walletDeposit"></p>
+					<p id="expensesBudget"></p>
+				</div>
+
+				<!-- <div>
+					<img class="groupAvatar" src="../images/groupAvatar.jpg">
+					<p id="groupNumber">No.2</p>
+					<p id="walletName"></p>
+					<p id="walletDeposit"></p>
+					<p id="expensesBudget"></p>
+				</div>
+
+				<div>
+					<img class="groupAvatar" src="../images/groupAvatar.jpg">
+					<p id="groupNumber">No.3</p>
+					<p id="walletName"></p>
+					<p id="walletDeposit"></p>
+					<p id="expensesBudget"></p>
+				</div> -->
+
+				<div class ="invisibleDiv">
+					<img class="groupAvatar" src="../images/groupAvatar.jpg">
+					<p id="groupNumber">No.2</p>
+					<p id="walletName"></p>
+					<p id="walletDeposit"></p>
+					<p id="expensesBudget"></p>
+				</div>
+				
+				<div id = "plusID" class = "plus">
+
+					<button id = "createButton" data-toggle="modal" data-target="#groupModal"><font size="5"><b>Create New Group</b></font></button>
+
+					<!--INFO FORM -->
+					<div id="groupModal" class="modal fade" role="dialog" tabindex = "-1">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h2 class="modal-title">
+										Create New Group
+									</h2>
+								</div>
+								<div class="modal-body">
+									<form role="form" id="reused_form" >
+										<div class="form-group">
+											<label for="name"> Name:</label>
+											<input type="text" class="form-control" id="group-name" name="name" required maxlength="50">
+										</div>
+										<button type="button" class="btn btn-lg btn-success btn-block" id="btnCreateGroup" onclick="createGroup()" data-dismiss="modal">Create Group</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END OF INFO FORM -->
+
+				</div>
+
+			</div>
+
+	</div>
+
+</div>
 
 </body>
 

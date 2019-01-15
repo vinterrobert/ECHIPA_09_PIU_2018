@@ -1,0 +1,131 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+div.container{
+	width: 100%;
+	height: 850px;
+	background-color: #f4f7fa;
+	font-family: 'Raleway', sans-serif;
+}
+
+div.header{
+	background: white;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 70px;
+}
+
+div.avatarUser{
+	position: relative;
+	float: right;
+	height: 70px;
+	width: 120px;
+	margin-top: -50px;
+}
+
+div.main{
+	margin-top: 70px;
+	margin-left: 100px;
+}
+
+img.topSpendee{
+	float: left;
+	margin-left: 10px;
+	margin-top: 0px;
+	width: 60px;
+}
+
+img.topAvatar{
+	float: right;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 60px;
+}
+
+a.topLogout{
+	float: right;
+	color: black;
+	margin-top: -30px;
+	margin-right: 40px;
+}
+
+div.groupsInfo{
+	border-radius: 15px;
+	width: 1000px;
+    height: 300px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+div.groupsInfo #group1{
+	float:left;
+	width: 250px;
+    height: 200px;
+    visibility: hidden;
+}
+
+
+div.groupsInfo div #groupNumber{
+	text-align: center;
+	font-size:x-large;
+}
+
+img.groupAvatar{
+	position: relative;
+	height: 200px;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 200px;
+	border-radius: 50%;
+}
+img.groupAvatar:hover{
+	box-shadow: 5px 5px 5px grey;
+}
+
+/*img.plusImage{
+	position: relative;
+	height: 200px;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 200px;
+	border-radius: 50%;
+}*/
+
+div.groupsInfo div #createGroup{
+	text-align: center;
+	font-size:x-large;
+}
+
+
+div.groupsInfo .plus{
+	clear: both;
+    margin-top: 60px;
+	float:left;
+	width: 250px;
+    height: 200px;
+
+}
+
+div.groupsInfo .invisibleDiv{
+	float:left;
+	width: 250px;
+    height: 200px;
+    visibility: hidden;
+
+}
+
+#createButton{
+
+	position: relative;
+	height: 200px;
+	margin-right: 130px;
+	margin-top: 5px;
+	width: 200px;
+	border-radius: 50%;
+	background: white;
+	border: 0px;
+}
+
+#createButton:hover{
+	box-shadow: 5px 5px 5px grey;
+}

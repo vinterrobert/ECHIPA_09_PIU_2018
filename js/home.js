@@ -39,6 +39,21 @@ function init(){
 		addWallet.style.display = "block";
 	}
 
+	if(window.localStorage.getItem('groupExistance') === "1"){
+
+		$(".addGroup").css("display", "none");
+		$(".groupsMsg").text("1 Group");
+		
+
+	}
+
+	if(window.localStorage.getItem('createdGroup') === "1"){
+
+		$(".groupsMsg").text("2 Groups");
+		
+
+	}
+
 }
 
 function openMyWallet() {
@@ -142,4 +157,14 @@ function addNewWhishlist() {
 	
 	alert("Not implemented yet");
 	return false;
+}
+
+function createNewGroup(){
+
+	var groupName = document.getElementById("group-name").value;
+	window.localStorage.setItem('createdFirstGroup', "1");
+	window.localStorage.setItem('groupExistance', "1");
+	window.localStorage.setItem('groupWallet', "0");
+	window.location="myGroups.html";
+
 }
