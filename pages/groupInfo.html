@@ -1,0 +1,185 @@
+<html>
+
+<head>
+
+	<title>Group No.1</title>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+	<link rel="stylesheet" href="../css/styleGroupInfo.css"/>
+	<link rel="stylesheet" href="../css/styleEcoInfoForm.css"/>
+	<script src="../js/groupInfo.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+		<div class="header"> 
+
+			<img class="topSpendee" src="../images/spendee.jpg"/>
+			<h1>FinancialPlanner</h1>
+
+			<div class="avatarUser">
+
+				<img class="topAvatar" src="../images/userAvatar.png">
+				<a href="../index.html" class="topLogout">Logout</a>
+
+			</div>
+
+		</div>
+		
+
+	<div class="main">
+
+			<h2>Group No.1</h2>
+
+			<div class="groupsInfo">
+
+				<div class="avatar">
+					<img class="memberAvatar" src="../images/userAvatar.png" onclick="onAvatar()">
+					<p id="memberName">Me</p>
+				</div>
+
+				<div class ="invisibleDiv">
+					<img class="memberAvatar" src="../images/userAvatar.png">
+					<p id="memberName">Pop Ioan</p>
+				</div>
+				
+				<div id = "plusID" class = "plus">
+
+					<button id = "createButton" data-toggle="modal" data-target="#myModal2"><b>Add New Member</b></button>
+					<!--INFO FORM -->
+					<div id="myModal2" class="modal fade" role="dialog" tabindex = "-1">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h2 class="modal-title">
+										Add New Member
+									</h2>
+								</div>
+								<div class="modal-body">
+									<form role="form" id="reused_form" >
+										<div class="form-group">
+											<label for="name"> Name:</label>
+											<input type="text" class="form-control" id="group-name" name="name" required maxlength="50">
+										</div>
+										<button type="button" class="btn btn-lg btn-success btn-block" id="btnCreateGroup" onclick="addMember()" data-dismiss="modal">Add Member</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--END OF INFO FORM -->
+					
+				</div>
+	
+			</div>
+
+			<div class ="groupWallet">
+						<p class="myWallet">Group Wallet</p>
+						<p id="walletMessage"></p>
+
+			</div>
+
+			<div class = "datePicker">
+
+				<input type="text" name="daterange" id="daterange" value="12/01/2018 - 12/31/2018" />
+
+						<script>
+						$(function() {
+						  $('input[name="daterange"]').daterangepicker({
+							opens: 'left'
+						  }, function(start, end, label) {
+							console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+						  });
+						});
+						</script>
+
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTransactionModal" id="addTransactionButton"><i class="fas fa-plus-circle"></i> Add transaction</button>
+				<!--ADD TRANSACTION FORM -->
+				<div id="addTransactionModal" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h5 class="modal-title">Add a new transaction</h5>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-12">
+									<label for="transactionCategory" id="transactionCategoryLabel">Choose a category for transaction </label>
+									<select name="transactionCategory" id="transactionCategory">
+										<option value="1" selected="selected">Food&Drinks</option>
+										<option value="2">Shopping</option>
+										<option value="3">Transport</option>
+										<option value="4">Bills</option>
+										<option value="5">Gifts</option>
+										<option value="6">Income</option>
+										<option value="7">Education</option>
+										<option value="7">Healthcare</option>
+									</select>
+									<br>
+
+									<label for="transactionName" id="transactionNameLabel">Choose a name for transaction </label>
+									<input type="text" class="form-control" id="transactionName" name="transactionName" required maxlength="50">
+
+									<label for="transactionAmount" id="transactionAmountLabel">Enter transaction amount</label>
+									<input type="text" class="form-control" id="transactionAmount" name="transactionAmount" required maxlength="50">
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" onclick="addTransaction()" data-dismiss="modal">Add transaction</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--ADD TRANSACTION FORM -->
+
+
+			</div>
+
+			<div class="myTransactions">
+
+				<h2>Group transactions</h2>
+
+				<div class="row">
+					<ul id="transactionsInfo">
+						<li>
+							<div class="item">
+								<div class="col-sm-3" id="date"></div>
+								<div class="col-sm-3" id="transactionCategory"></div>
+								<div class="col-sm-6" id="transactionName"></div>
+								<div class="col-sm-3" id="amount" style="color:green;"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>
